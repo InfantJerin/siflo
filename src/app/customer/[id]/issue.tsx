@@ -8,8 +8,9 @@ import {
   useAudioRecorderState,
 } from 'expo-audio';
 import { Image } from 'expo-image';
-import { router, useFocusEffect, useLocalSearchParams, usePreventRemove } from 'expo-router';
-import { useCallback, useRef, useState } from 'react';
+import { router, useFocusEffect, useLocalSearchParams, useNavigation } from 'expo-router';
+import { usePreventRemove } from 'expo-router/react-navigation';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Platform, Pressable, StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
@@ -79,10 +80,16 @@ export default function RecordIssueScreen() {
   );
 
   // Ask before throwing away unsaved work (header back, hardware back, swipe back).
-  const disablePrevention = usePreventRemove(dirty && !leaving, ({ repeat }) => {
-    pendingLeave.current = repeat;
+  const navigation = useNavigation();
+  usePreventRemove(dirty && !leaving, ({ data }) => {
+    pendingLeave.current = () => navigation.dispatch(data.action);
     setDiscardOpen(true);
   });
+
+  // Leave only after the guard above has been lifted, or it would block us again.
+  useEffect(() => {
+    if (leaving) pendingLeave.current?.();
+  }, [leaving]);
 
   if (!customer) return null;
 
@@ -160,11 +167,12 @@ export default function RecordIssueScreen() {
       // A promise amount field isn't designed yet, so a promise assumes the amount due.
       ...(outcome === 'willPay' ? { amount: customer.dueAmount } : {}),
     });
+    pendingLeave.current = () => {
+      router.dismissAll();
+      router.navigate('/');
+      showToast(t('issue.saved'));
+    };
     setLeaving(true);
-    disablePrevention();
-    router.dismissAll();
-    router.navigate('/');
-    showToast(t('issue.saved'));
   };
 
   const recording = recorderState.isRecording;
@@ -291,7 +299,6 @@ export default function RecordIssueScreen() {
           onPress={() => {
             setDiscardOpen(false);
             setLeaving(true);
-            pendingLeave.current?.();
           }}
         />
       </BottomSheet>

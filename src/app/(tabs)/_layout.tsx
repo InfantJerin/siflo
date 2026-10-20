@@ -19,7 +19,7 @@ const LABELS: Record<string, string> = {
   profile: 'tabs.profile',
 };
 
-function SifTabBar({ state, navigateToTab, insets }: BottomTabBarProps) {
+function SifTabBar({ state, navigation, insets }: BottomTabBarProps) {
   const { t } = useTranslation();
   return (
     <View style={[styles.bar, { paddingBottom: 12 + insets.bottom }]}>
@@ -33,7 +33,8 @@ function SifTabBar({ state, navigateToTab, insets }: BottomTabBarProps) {
             accessibilityState={{ selected: focused }}
             accessibilityLabel={label}
             onPress={() => {
-              if (!focused) navigateToTab(route.key);
+              const event = navigation.emit({ type: 'tabPress', target: route.key, canPreventDefault: true });
+              if (!focused && !event.defaultPrevented) navigation.navigate(route.name, route.params);
             }}
             style={[styles.item, focused && styles.itemActive]}
           >
