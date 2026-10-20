@@ -39,3 +39,6 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# project-local tooling (Android SDK, JDK, emulator, caches)
+.tooling/

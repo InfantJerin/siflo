@@ -1,0 +1,77 @@
+{
+  "activities": [
+    {
+      "id": "a-raj-col",
+      "customerId": "c-rajendran",
+      "kind": "collection",
+      "amount": 5000,
+      "method": "cash",
+      "at": "2026-09-08T09:05:00",
+      "note": "Paid in cash at the shop.",
+      "reference": "SIF–COL–0838"
+    },
+    {
+      "id": "a-lak-col",
+      "customerId": "c-lakshmi",
+      "kind": "collection",
+      "amount": 12000,
+      "method": "upi",
+      "at": "2026-09-08T09:30:00",
+      "note": "Paid the full EMI by UPI.",
+      "reference": "SIF–COL–0839"
+    },
+    {
+      "id": "a-kum-visit",
+      "customerId": "c-rkumar",
+      "kind": "visit",
+      "outcome": "notAvailable",
+      "at": "2026-09-08T09:55:00",
+      "note": "Shop was closed. Call before the next visit. Photo and voice evidence were attached.",
+      "followUp": "2026-09-09",
+      "photo": { "mock": "shopfront", "label": "KUMAR STORES" },
+      "voice": "rkumar-shop-closed",
+      "voiceSeconds": 7
+    },
+    {
+      "id": "a-mur-visit",
+      "customerId": "c-murugan",
+      "kind": "visit",
+      "outcome": "willPay",
+      "amount": 2500,
+      "at": "2026-09-08T10:05:00",
+      "note": "Payment promised tomorrow morning.",
+      "followUp": "2026-09-09"
+    },
+    {
+      "id": "a-kav-visit",
+      "customerId": "c-kavitha",
+      "kind": "visit",
+      "outcome": "willPay",
+      "amount": 7200,
+      "at": "2026-09-08T10:15:00",
+      "note": "Promise of ₹7,200 is expected after salary. Call again Friday.",
+      "followUp": "2026-09-11"
+    },
+    {
+      "id": "a-sel-col",
+      "customerId": "c-selvam",
+      "kind": "collection",
+      "amount": 4500,
+      "method": "upi",
+      "at": "2026-09-07T16:20:00",
+      "note": "Paid by UPI before the due date.",
+      "reference": "SIF–COL–0831"
+    },
+    {
+      "id": "a-ame-visit",
+      "customerId": "c-ameena",
+      "kind": "visit",
+      "outcome": "willPay",
+      "amount": 6000,
+      "at": "2026-09-07T17:10:00",
+      "note": "Payment promised for Friday. Follow up after 2 pm.",
+      "followUp": "2026-09-11"
+    }
+  ],
+  "nextReferenceNumber": 842
+}

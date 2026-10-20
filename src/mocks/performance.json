@@ -1,0 +1,21 @@
+{
+  "currentMonth": {
+    "label": "September",
+    "target": 100000,
+    "collectedBeforeToday": 51000,
+    "rating": 4.2,
+    "ratingBreakdown": [
+      { "key": "moneyRecovered", "level": "good" },
+      { "key": "backOnTrack", "level": "good" },
+      { "key": "visitsDoneRight", "level": "canImprove" }
+    ]
+  },
+  "pastMonths": [
+    { "label": "August", "rating": 4.0, "collected": 92000, "target": 100000 },
+    { "label": "July", "rating": 3.8, "collected": 78000, "target": 90000 }
+  ],
+  "managerNotes": [
+    { "id": "n-1", "kind": "recognition", "text": "2 long-pending customers paid this week", "from": "Suresh" },
+    { "id": "n-2", "kind": "tip", "text": "3 of your customers are usually home after 6 pm", "from": "Suresh" }
+  ]
+}

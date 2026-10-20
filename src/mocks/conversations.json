@@ -1,0 +1,48 @@
+{
+  "conversations": {
+    "c-meena": {
+      "unread": 1,
+      "items": [
+        {
+          "id": "m-1",
+          "type": "message",
+          "author": { "name": "Bhaskar", "role": "Agent" },
+          "mine": false,
+          "text": "Customer prefers a visit after 11 AM.",
+          "at": "2026-09-07T16:20:00"
+        },
+        {
+          "id": "e-1",
+          "type": "event",
+          "text": "Customer reassigned",
+          "detail": "Bhaskar → Arun",
+          "at": "2026-09-08T08:00:00"
+        },
+        {
+          "id": "m-2",
+          "type": "message",
+          "author": { "name": "Arun", "role": "Agent" },
+          "mine": true,
+          "text": "Customer is at the shop today. Can I visit this afternoon?",
+          "at": "2026-09-08T10:24:00",
+          "status": "sent"
+        },
+        {
+          "id": "m-3",
+          "type": "message",
+          "author": { "name": "Suresh", "role": "Manager" },
+          "mine": false,
+          "text": "Yes, please confirm a suitable time with her and update me here.",
+          "at": "2026-09-08T10:28:00"
+        }
+      ]
+    },
+    "c-karthik": { "unread": 0, "items": [] }
+  },
+  "cannedManagerReplies": [
+    "Thanks Arun, noted.",
+    "Okay. Please update me after the visit.",
+    "Good. Keep the receipt reference handy.",
+    "Understood. Let me know if you need help."
+  ]
+}
